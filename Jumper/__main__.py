@@ -1,2 +1,4 @@
-from game.manager import Manager
+from game.director import Director
 
+director = Director()
+director.start_game() 
