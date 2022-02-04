@@ -19,3 +19,4 @@ root                    (project root folder)
 ## Authors
 
 Daniel McNary (blackanddan@byui.edu)
+Heidi Munson (mun21014@byui.edu)
