@@ -18,6 +18,17 @@ class GraphicManager:
         Args:
             self(GraphicManager): An instance of GraphicManager
         """
+        self.parachute = [
+            " ___  ",
+            "/___\ ",
+            "\   / ",
+            " \ /  ",
+            "  O   ",
+            " /|\  ",
+            " / \  ",
+            "      ",
+            "^^^^^^"
+        ]
 
 
     def print_parachute(self):
@@ -26,6 +37,12 @@ class GraphicManager:
         Args:
             self(GraphicManager): An instance of GraphicManager
         """
+  
+        
+        for i in self.parachute:
+            print(self.parachute[i])
+
+
 
     def update_graphic(self, isCorrect, remainingGuesses):
         """This function updates the parachute list to print out the parachute each turn.
@@ -36,3 +53,8 @@ class GraphicManager:
                 if it is wrong(False) it will remove the top part of the parachute.
             remainingGuesses(integer): Number of guesses left before game over.
         """
+        if isCorrect == "False":
+            self.parachute.pop(0)
+        
+
+

@@ -2,8 +2,8 @@
 # TEMPLATE CLASS
 # Handles user input and the main game loop.
 ################################
-from game.word_manager import WordManager
-from game.graphic_manager import GraphicManager
+from Game.word_manager import WordManager
+from Game.graphic_manager import GraphicManager
 
 class Director:
 
@@ -24,10 +24,10 @@ class Director:
    #Initialize necessary classes and attributes
    def __init__(self):
       """The class constructor
-   Args:
-      self.WordManager: an instance for word_Manager
+      Args:
+         self.WordManager: an instance for word_Manager
       self.GraphicManager: an instance for graphic_manager
-   """
+      """
    
 
    #TEMPLATE FUNCTION
