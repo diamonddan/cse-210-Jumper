@@ -17,10 +17,9 @@ class WordManager:
 
    Attributes:
       correct_word (string): holds the value of the correct word
-      working_word (string): holds the value of the masked word
-      remaining_guesses (int): holds the value of the number of remaining guesses
+      working_word (list): holds the value of the masked word
       word_list (list): holds the list of possible words to choose from
-      correct_list (list): holds the list of correct guesses
+      total_guessed_words (integer): holds the total number of letters guessed
    """
    def __init__(self):
       """ The class constructor
@@ -28,33 +27,33 @@ class WordManager:
       Args: 
          self (WordManager): an instance of WordManager
       """
+      self._word_list = ["hardware", "software", "memory", "program", "firewall", "network", "database", "algorithm", "backup", "binary"]
+      self._correct_word = random.choice(self._word_list) #choose a random word from word_list
+      self._working_word = []
+      for i in range(len(self._correct_word)):  #initialize working_word with underscores the same length of correct_word
+         self._working_word.append(i)
+      self._total_guessed_words = 0
+
+
+   """Check if the letter from the user exist in the word 
+   if it exists call add_letter to replace underscores with the letter
+   """
+   def check_letter(self, letter):
+      positions = [] #the list of positions to be replaced in working_word
+      position = 0
+      for i in self._correct_word:  #iterate over correct_word to check if letter is in correct_word
+         if letter == i:
+            positions.append(position) #keep the position in positions
+         position += 1
       
+      if len(positions) > 0:
+         self.add_letter(letter, positions)
+         return True
+      else:
+         return False
+   
+   """Recive a list with the positions in working_word to be repalced with letter"""
+   def add_letter(self, letter, positions):
+      pass
 
-   #TEMPLATE FUNCTION
-   #gets working word from word data class
-   def get_word(self):
-      """ returns a random word from the word_list
-
-      Args:
-         self (WordManager): an instance of WordManager
-      """
-      
-
-   #update and return the users word after a correct guess given a letter
-   def update_word(self):
-      """ resets masked word and constructs it again using correct guesses
-
-      Args:
-         self (WordManager): an instance of WordManager
-      """
-      
-
-   def is_correct(self, letter):
-      """ returns true or false based on whether guess was correct
-
-      Args:
-         self (WordManager): an instance of WordManager
-         letter (string): the current user guess
-      """
-      
-
+   
