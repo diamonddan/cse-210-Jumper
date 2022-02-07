@@ -20,3 +20,4 @@ root                    (project root folder)
 
 Daniel McNary (blackanddan@byui.edu)
 Heidi Munson (mun21014@byui.edu)
+Armando Martinez (mar21095@byui.edu)
