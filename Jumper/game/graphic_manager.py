@@ -18,7 +18,8 @@ class GraphicManager:
         Args:
             self(GraphicManager): An instance of GraphicManager
         """
-        self.parachute = [
+        self.parachute = {
+         7: [
             " ___  ",
             "/___\ ",
             "\   / ",
@@ -27,8 +28,51 @@ class GraphicManager:
             " /|\  ",
             " / \  ",
             "      ",
-            "^^^^^^"
-        ]
+            "^^^^^^"],
+         6: [
+            "/___\ ",
+            "\   / ",
+            " \ /  ",
+            "  O   ",
+            " /|\  ",
+            " / \  ",
+            "      ",
+            "^^^^^^"],
+         5: [
+            "\   / ",
+            " \ /  ",
+            "  O   ",
+            " /|\  ",
+            " / \  ",
+            "      ",
+            "^^^^^^"],
+         4: [
+            " \ /  ",
+            "  O   ",
+            " /|\  ",
+            " / \  ",
+            "      ",
+            "^^^^^^"], 
+         3: [
+            "AHHHH!",
+            "  O   ",
+            " /|\  ",
+            " / \  ",
+            "      ",
+            "^^^^^^"], 
+         2: [
+            " /|\   ",
+            " / \   ",
+            "       ",
+            "^^^^^^ "], 
+         1: [
+            " / \  ",
+            "      ",
+            "^^^^^^"],  
+         0: [
+            "O-\//\ ",
+            "^^^^^^ "],   
+        }
 
 
     def print_parachute(self):
@@ -39,8 +83,8 @@ class GraphicManager:
         """
   
         
-        for i in self.parachute:
-            print(self.parachute[i])
+        for i in self.status:
+            print(self.status[i])
 
 
 
@@ -54,7 +98,7 @@ class GraphicManager:
             remainingGuesses(integer): Number of guesses left before game over.
         """
         if isCorrect == "False":
-            self.parachute.pop(0)
+            self.status = self.parachute [remainingGuesses]
         
 
 
