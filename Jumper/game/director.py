@@ -4,6 +4,7 @@
 ################################
 from game.word_manager import WordManager
 from game.graphic_manager import GraphicManager
+from game.terminal_service import TerminalService
 
 class Director:
 
