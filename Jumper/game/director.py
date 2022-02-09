@@ -97,9 +97,11 @@ class Director:
 
       if self._words.user_wins(): 
          self._is_playing = False 
-         print("You Won") #Diego pls Change this line for the method  you_win()
+         # print("You Won") #Diego pls Change this line for the method  you_win()
+         self._terminal_service.you_win()
 
       #if parachute removed -  game over 
       if self._graphic.get_lives == 0: 
-         print("Game Over") #Diego pls Change this line for the method game_over()
+         # print("Game Over") #Diego pls Change this line for the method game_over()
+         self._terminal_service.game_over()
    
