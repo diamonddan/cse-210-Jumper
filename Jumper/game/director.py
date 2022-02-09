@@ -64,7 +64,7 @@ class Director:
       """
 
       #ask for letter guess 
-      self._guess =input("\nGuess a letter [A-Z]: ").lower()
+      self._guess = (self._terminal_service.read_text("\nGuess a letter [A-Z]: ")).lower()
       
 
    def do_updates(self): 
@@ -76,11 +76,15 @@ class Director:
       # Heidi you can also give feedback to the user with the wrong() and right() methods from terminal_service 
       # (check_letter return true if guess is in the word false in other case)
 
-      #looks for letter in word 
+      #looks for letter in word and updates letter in word
       self._words.check_letter(self._guess)
-      #updates letter in word  -> this is done by check_letter() you dont have to implement nothing else
+      if self._words.check_letter(self._guess) == True:
+         self._terminal_service.right()
+      else:
+         self._terminal_service.wrong()
 
       #removes portion of parachute  -> Use decrease_lives() from graphic_manager
+      self._graphic.decrease_lives()
 
    def do_outputs(self): 
       """Determines game won or lost. Continues play or ends game. 
