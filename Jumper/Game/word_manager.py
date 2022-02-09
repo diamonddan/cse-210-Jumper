@@ -31,7 +31,7 @@ class WordManager:
       self._correct_word = random.choice(self._word_list) #choose a random word from word_list
       self._working_word = []
       for i in range(len(self._correct_word)):  #initialize working_word with underscores the same length of correct_word
-         self._working_word.append(i)
+         self._working_word.append('_')
       self._total_guessed_words = 0
 
 
@@ -53,7 +53,13 @@ class WordManager:
          return False
    
    """Recive a list with the positions in working_word to be repalced with letter"""
-   def add_letter(self, letter, positions):
+   def add_letter(self, letter, positions): #Daniel pls complete this method, follow the word with the assigments.
       pass
-
    
+   def print_guessedWord(self):
+      for i in self._working_word:
+         print(f"{i} ", end='')
+      print("")
+
+   def user_wins(self):
+      return self._total_guessed_words == len(self._correct_word)
