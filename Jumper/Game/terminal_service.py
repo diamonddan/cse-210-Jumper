@@ -36,6 +36,18 @@ class TerminalService:
             self (TerminalService): An instance of TerminalService.
         """
         print('You WON!!')
+    
+    def read_text(self, prompt):
+        """Gets text input from the terminal. Directs the user with the given prompt.
+
+        Args: 
+            self (TerminalService): An instance of TerminalService.
+            prompt (string): The prompt to display on the terminal.
+
+        Returns:
+            string: The user's input as text.
+        """
+        return input(prompt)
 
 
     # def output_text (self,text):
