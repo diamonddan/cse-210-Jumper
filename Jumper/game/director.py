@@ -2,9 +2,9 @@
 # TEMPLATE CLASS
 # Handles user input and the main game loop.
 ################################
-from Game.word_manager import WordManager
-from Game.graphic_manager import GraphicManager
-from Game.terminal_service import TerminalService
+from game.word_manager import WordManager
+from game.graphic_manager import GraphicManager
+from game.terminal_service import TerminalService
 
 class Director:
 
