@@ -2,7 +2,7 @@
 # TEMPLATE CLASS
 # Handles user input and the main game loop.
 ################################
-from game.word_manager import WordManager
+from game.word_manager import WordManager 
 from game.graphic_manager import GraphicManager
 from game.terminal_service import TerminalService
 
