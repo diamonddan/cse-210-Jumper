@@ -18,7 +18,8 @@ class GraphicManager:
         Args:
             self(GraphicManager): An instance of GraphicManager
         """
-        self.parachute = {
+        self._lives = 7
+        self._parachute = {
          7: [
             " ___  ",
             "/___\ ",
@@ -81,24 +82,14 @@ class GraphicManager:
         Args:
             self(GraphicManager): An instance of GraphicManager
         """
-  
+        key = self._lives
+        print('')
+        for i in self._parachute[key]:
+            print(i)
+
+    def get_lives(self):
+        return self._lives
         
-        for i in self.status:
-            print(self.status[i])
-
-
-
-    def update_graphic(self, isCorrect, remainingGuesses):
-        """This function updates the parachute list to print out the parachute each turn.
-
-        Args:
-            self(GraphicManager): An instance of GraphicManager
-            isCorrect(Boolean): Receives an Boolean value for the guess of the user. If it's right (True) it won't change the parachute
-                if it is wrong(False) it will remove the top part of the parachute.
-            remainingGuesses(integer): Number of guesses left before game over.
-        """
-        if isCorrect == "False":
-            self.status = self.parachute [remainingGuesses]
-        
-
-
+    #Kelly pls add a method decrease_lives() to decrease the number of lives here so Heidi can use it in director.py
+    def decrease_lives(self):
+        self._lives -= 1
