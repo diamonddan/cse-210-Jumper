@@ -45,11 +45,9 @@ class Director:
          self (Director): an instance of Director
 
       """
-      self._words.print_guessedWord() #display gueessed word from word manager 
-
+      
       #display hypthens 
 
-      self._graphic.print_parachute() #display graphic
 
       while self._is_playing: 
          self.get_inputs() 
@@ -62,7 +60,9 @@ class Director:
       Args: 
          self (Director): an instance of Director
       """
+      self._words.print_guessedWord() #display gueessed word from word manager 
 
+      self._graphic.print_parachute() #display graphic
       #ask for letter guess 
       self._guess = (self._terminal_service.read_text("\nGuess a letter [A-Z]: ")).lower()
       
@@ -82,9 +82,9 @@ class Director:
          self._terminal_service.right()
       else:
          self._terminal_service.wrong()
+         #removes portion of parachute  -> Use decrease_lives() from graphic_manager
+         self._graphic.decrease_lives()
 
-      #removes portion of parachute  -> Use decrease_lives() from graphic_manager
-      self._graphic.decrease_lives()
 
    def do_outputs(self): 
       """Determines game won or lost. Continues play or ends game. 
@@ -95,13 +95,19 @@ class Director:
 
       #if word is solved - winner
 
-      if self._words.user_wins(): 
+      if self._words.user_wins() == True: 
          self._is_playing = False 
          # print("You Won") #Diego pls Change this line for the method  you_win()
+         self._words.print_guessedWord()  
+         self._graphic.print_parachute()
          self._terminal_service.you_win()
+         exit()
 
       #if parachute removed -  game over 
-      if self._graphic.get_lives == 0: 
+      if self._graphic.get_lives() <= 0: 
          # print("Game Over") #Diego pls Change this line for the method game_over()
+         self._words.print_guessedWord() 
+         self._graphic.print_parachute()
          self._terminal_service.game_over()
+         exit()
    

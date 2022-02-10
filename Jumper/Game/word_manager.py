@@ -30,9 +30,9 @@ class WordManager:
       self._word_list = ["hardware", "software", "memory", "program", "firewall", "network", "database", "algorithm", "backup", "binary"]
       self._correct_word = random.choice(self._word_list) #choose a random word from word_list
       self._working_word = []
-      for i in range(len(self._correct_word)):  #initialize working_word with underscores the same length of correct_word
+      for _ in range(len(self._correct_word)):  #initialize working_word with underscores the same length of correct_word
          self._working_word.append('_')
-      self._total_guessed_words = 0
+      # self._total_guessed_words = 0
 
 
    """Check if the letter from the user exist in the word 
@@ -44,6 +44,7 @@ class WordManager:
       for i in self._correct_word:  #iterate over correct_word to check if letter is in correct_word
          if letter == i:
             positions.append(position) #keep the position in positions
+            # self._total_guessed_words += 1
          position += 1
       
       if len(positions) > 0:
@@ -53,8 +54,10 @@ class WordManager:
          return False
    
    """Recive a list with the positions in working_word to be repalced with letter"""
-   def add_letter(self, letter, positions): #Daniel pls complete this method, follow the word with the assigments.
-      pass
+   def add_letter(self, letter, positions): #Daniel pls complete this method.
+      for i in positions:
+         self._working_word[i] = letter
+         
    
    def print_guessedWord(self):
       for i in self._working_word:
@@ -62,4 +65,4 @@ class WordManager:
       print("")
 
    def user_wins(self):
-      return self._total_guessed_words == len(self._correct_word)
+      return  "".join(self._working_word) == self._correct_word
