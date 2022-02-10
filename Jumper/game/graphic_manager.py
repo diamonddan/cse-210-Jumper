@@ -90,5 +90,6 @@ class GraphicManager:
         return self._lives
         
     #Kelly pls add a method decrease_lives() to decrease the number of lives here so Heidi can use it in director.py
-
+    def decrease_lives(self):
+        self._lives -= 1
 
